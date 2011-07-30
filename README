@@ -1,0 +1,58 @@
+A CodeIgniter library to produce Google Maps and associated functionality
+
+Copy the file google_maps.php into your library directory and then load the library using either the autoload in application/config/autoload.php or with the following in a controller
+
+$this->load->library('google_maps');
+
+As well as adding the output function in your view
+
+echo $this->google_maps->output();
+
+Functions
+
+create
+
+This function needs to be called before any other function.
+
+It creates a basic map and sets it's center and the zoom level.
+
+The function accepts an optional parameter of an array containing the options you want to override. These are
+
+elementId - The id of the HTML tag you will use to hold your map. If none is declared it defaults to map
+sensor - This tells Google Maps if you will be using geolocation to detect a user's position. Pass in a string of true or false. Defaults to false
+centerLat - The latitude you wish to focus the map on. Defaults to 0
+centerLng - The longitude you wish to focus the map on. Defaults to 0
+mapTypeId - Google Maps can display different styles of map depending on your application's needs. The options are
+HYBRID 	This map type displays a transparent layer of major streets on satellite images.
+ROADMAP 	This map type displays a normal street map.
+SATELLITE 	This map type displays satellite images.
+TERRAIN 	This map type displays maps with physical features such as terrain and vegetation.
+Defaults to ROADMAP
+zoom - How far in you want to zoom on the map. Accepts an integer between 0 and 21. Defaults to 0
+
+add_markers
+
+This function can add one or more markers to the map.
+
+It accepts a multi dimensional array. Each sub array must contain a lat and long value and can also contain optional keys of
+
+infoWindowHtml - If you want an info window to appear when the marker is clicked pass in the HTML you want the window to contain
+
+An example of adding two markers to a map, one with an info window, would look like the following
+
+$markers[0]['lat']	= '50.3697';
+$markers[0]['lng']	= '-4.1399';
+
+$markers[1]['lat']				= '50.2697';
+$markers[1]['lng']				= '-4.0399';
+$markers[1]['infoWindowHTML']	= '<h1>My info window</h1><p>Some more info can go in here</p>';
+				
+extract_lat_lng
+
+If you want to extract the lat lng values from a click on the map you can use this function.
+
+It requires two parameters. The id of the latitude and longitude inputs that you want to populate.
+
+To see demonstrations of the library visit
+
+http://ianluckraft.co.uk/demonstrations/CodeIgniter-Google-Maps-Library/
