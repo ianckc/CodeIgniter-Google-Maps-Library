@@ -1,3 +1,5 @@
+## No longer receiving security updates
+
 A CodeIgniter library to produce Google Maps and associated functionality
 
 Copy the file google_maps.php into your library directory and then load the library using either the autoload in application/config/autoload.php or with the following in a controller
